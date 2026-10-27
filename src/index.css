@@ -1,0 +1,577 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Corporate Blue - Primary Brand Color (Old Signature Theme) */
+    --background: 0 0% 100%;
+    --foreground: 218 65% 15%; /* Deep Corporate Blue #0E1E38 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 218 65% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 65% 15%;
+
+    /* Deep Corporate Blue */
+    --primary: 218 65% 15%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 218 70% 10%;
+    --primary-soft: 218 65% 25%;
+
+    /* Light variants for sections */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 218 65% 15%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 90%;
+    --accent-foreground: 218 65% 15%;
+
+    /* Brand Orange - CTA Primary */
+    --brand-orange: 39 100% 50%;
+    --brand-orange-foreground: 0 0% 100%;
+
+    /* Brand Green - CTA Secondary */
+    --brand-green: 134 61% 41%;
+    --brand-green-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 218 65% 15%;
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(218, 65%, 15%), hsl(218, 65%, 25%));
+    --gradient-orange: linear-gradient(135deg, hsl(39, 100%, 50%), hsl(39, 100%, 60%));
+    --gradient-green: linear-gradient(135deg, hsl(134, 61%, 41%), hsl(134, 61%, 51%));
+    --gradient-hero: linear-gradient(135deg, hsl(218, 65%, 15%) 0%, hsl(218, 65%, 25%) 50%, hsl(218, 65%, 15%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(39, 100%, 50%) 0%, hsl(39, 100%, 45%) 100%);
+
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px hsl(218 65% 15% / 0.1);
+    --shadow-hover: 0 8px 30px hsl(218 65% 15% / 0.15);
+    --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Custom Luxury Corporate Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060E1E;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 4px;
+    border: 2px solid #060E1E;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D9961A;
+  }
+
+  /* Utility to completely hide scrollbar when requested */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ::selection {
+    background-color: #062B63;
+    color: #FFFFFF;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-slate-900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+  .btn-orange {
+    @apply bg-brand-gold text-brand-navy font-semibold hover:bg-brand-richgold transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold hover:bg-brand-navy transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline-white {
+    @apply bg-white/10 text-white border border-white/30 backdrop-blur-sm font-medium hover:bg-white hover:text-brand-navy transition-all duration-200;
+  }
+
+  .btn-green {
+    @apply bg-brand-green text-white font-medium hover:bg-brand-freshgreen transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1;
+  }
+
+  /* 12-Column Responsive Grid System (Design System Ch. 5) */
+  .grid-12 {
+    @apply grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-6;
+  }
+
+  /* =========================================================================
+     APPLE / CONGLOMERATE LIQUID GLASS LUXURY SYSTEM
+     Translucent, Refractive Depth, Specular Sheen, Ultra-Clean & Smooth
+     ========================================================================= */
+  
+  /* Light Liquid Glass (Luxury Surface) */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px -5px rgba(6, 43, 99, 0.06),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -1px 1px 0 rgba(0, 0, 0, 0.02);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(217, 150, 26, 0.4);
+    box-shadow: 0 20px 40px -8px rgba(6, 43, 99, 0.12),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+  }
+
+  /* Ultra-Luxury Elevated Liquid Glass Card */
+  .liquid-glass-luxury {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 252, 0.75) 100%);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 14px 36px -6px rgba(6, 43, 99, 0.08),
+                0 2px 8px -2px rgba(6, 43, 99, 0.04),
+                inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass-luxury:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 100%);
+    border-color: rgba(217, 150, 26, 0.45);
+    box-shadow: 0 24px 48px -10px rgba(6, 43, 99, 0.15),
+                0 4px 12px -2px rgba(217, 150, 26, 0.08),
+                inset 0 1.5px 2px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-3px);
+  }
+
+  /* Dark Liquid Glass (For header, mega menu, dark cards, hero panels) */
+  .liquid-glass-dark {
+    background: rgba(6, 35, 80, 0.78);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4),
+                inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 1px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass-dark:hover {
+    background: rgba(6, 43, 99, 0.88);
+    border-color: rgba(244, 179, 44, 0.4);
+    box-shadow: 0 28px 60px -10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 0.45);
+    transform: translateY(-2px);
+  }
+
+  /* Tata Dropdown / Mega Menu Glass */
+  .tata-dropdown-bg {
+    background: rgba(6, 23, 51, 0.96) !important;
+    backdrop-filter: blur(32px) saturate(210%);
+    -webkit-backdrop-filter: blur(32px) saturate(210%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.95),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Interactive Liquid Glass Pill / Control */
+  .liquid-glass-pill {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px) saturate(170%);
+    -webkit-backdrop-filter: blur(18px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
+                0 4px 16px -2px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass-pill:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.6),
+                0 8px 20px -2px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Gold Refraction Pill */
+  .liquid-glass-gold {
+    background: linear-gradient(135deg, rgba(244, 179, 44, 0.15) 0%, rgba(217, 150, 26, 0.08) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(244, 179, 44, 0.35);
+    box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.4),
+                0 6px 20px -4px rgba(217, 150, 26, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .liquid-glass-gold:hover {
+    background: linear-gradient(135deg, rgba(244, 179, 44, 0.22) 0%, rgba(217, 150, 26, 0.14) 100%);
+    border-color: rgba(244, 179, 44, 0.6);
+    box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.6),
+                0 10px 24px -4px rgba(217, 150, 26, 0.22);
+  }
+
+  /* Institutional Card (Upgraded with Refined Liquid Glass Sheen) */
+  .institutional-card {
+    @apply rounded-2xl transition-all duration-300;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px -4px rgba(6, 43, 99, 0.06),
+                inset 0 1px 1.5px 0 rgba(255, 255, 255, 1);
+  }
+
+  .institutional-card:hover {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(217, 150, 26, 0.4);
+    box-shadow: 0 20px 44px -6px rgba(6, 43, 99, 0.12),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -4px rgba(6, 43, 99, 0.12);
+  }
+
+  /* Glass Header on Hero */
+  .header-glass {
+    background: rgba(6, 43, 99, 0.75);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18),
+                inset 0 -1px 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .header-scrolled {
+    background: rgba(6, 43, 99, 0.92);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.28);
+  }
+
+  /* Section Dividers & Badges (Refined Liquid Glass Badges) */
+  .section-badge {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+    background: rgba(244, 179, 44, 0.14);
+    color: #F4B32C;
+    border: 1px solid rgba(244, 179, 44, 0.32);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  .section-badge-blue {
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+    background: rgba(13, 76, 151, 0.1);
+    color: #0D4C97;
+    border: 1px solid rgba(13, 76, 151, 0.22);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  /* Marquee Animation */
+  .marquee-container {
+    @apply flex items-center overflow-hidden;
+  }
+
+  .marquee-content {
+    @apply flex items-center gap-16 md:gap-24 shrink-0;
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee-item {
+    @apply flex-shrink-0 flex items-center justify-center;
+  }
+
+  .marquee-content:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-on-scroll {
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
+}
+
+/* Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Orbit & Constellation Keyframes */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+}
+
+.orbit-spin-slow {
+  animation: orbit-spin 45s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-spin-reverse-slow {
+  animation: orbit-counter-spin 55s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-counter-spin-slow {
+  animation: orbit-counter-spin 45s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-dash-animated {
+  animation: dash-flow 20s linear infinite;
+}
+
+.orbit-container:hover .orbit-spin-slow,
+.orbit-container:hover .orbit-spin-reverse-slow,
+.orbit-container:hover .orbit-counter-spin-slow,
+.orbit-container:hover .orbit-dash-animated {
+  animation-play-state: paused;
+}
+
+/* =========================================================================
+   RICH TEXT & EDITORIAL LIST FORMATTING (Bullet Dots & Numbers)
+   ========================================================================= */
+
+.rbg-rich-editor-content,
+.prose,
+.article-content,
+[contenteditable="true"] {
+  outline: none;
+}
+
+.rbg-rich-editor-content ul,
+.prose ul,
+.article-content ul {
+  list-style-type: disc !important;
+  padding-left: 1.75rem !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.rbg-rich-editor-content ol,
+.prose ol,
+.article-content ol {
+  list-style-type: decimal !important;
+  padding-left: 1.75rem !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.rbg-rich-editor-content li,
+.prose li,
+.article-content li {
+  display: list-item !important;
+  margin-top: 0.35rem !important;
+  margin-bottom: 0.35rem !important;
+  line-height: 1.65 !important;
+}
+
+.rbg-rich-editor-content ul ul,
+.prose ul ul {
+  list-style-type: circle !important;
+}
+
+.rbg-rich-editor-content ol ol,
+.prose ol ol {
+  list-style-type: lower-alpha !important;
+}
+
+.rbg-rich-editor-content blockquote,
+.prose blockquote {
+  border-left: 3px solid #0f172a !important;
+  padding-left: 1rem !important;
+  font-style: italic !important;
+  margin: 1rem 0 !important;
+  color: #475569 !important;
+}
+
+.rbg-rich-editor-content h1, .prose h1 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.25 !important;
+}
+
+.rbg-rich-editor-content h2, .prose h2 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.3 !important;
+}
+
+.rbg-rich-editor-content h3, .prose h3 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.35 !important;
+}
+
+.rbg-rich-editor-content p, .prose p {
+  margin-top: 0.65rem !important;
+  margin-bottom: 0.65rem !important;
+  line-height: 1.7 !important;
+}
+

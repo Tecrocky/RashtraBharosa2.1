@@ -1,0 +1,56 @@
+# Rashtra Bharosa Group — Official Robots & AI Search Directives
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /dashboard
+
+# Explicit AI Search & Knowledge Engine Agents
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+
+# Sitemaps
+Sitemap: https://www.rashtrabharosagroup.com/sitemap.xml
+Sitemap: https://www.rashtrabharosagroup.com/sitemap.html
