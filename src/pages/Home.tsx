@@ -126,10 +126,10 @@ const Home = () => {
   return (
     <div className="bg-white text-[#10264a] font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-navy">
       <MetaTags
-        title="Rashtra Bharosa Group | Indian Industrial Conglomerate"
-        description="Rashtra Bharosa Group is a diversified Indian industrial conglomerate building businesses across Mining, Infrastructure & Construction, Healthcare, Technology, Agriculture, Real Estate, and Strategic Investments."
-        keywords="Rashtra Bharosa Group, Rashtra Bharosa, RashBhar, Indian industrial conglomerate, industrial conglomerate India, diversified Indian industrial group, diversified business group India, Indian business group, Indian industrial group, diversified industrial conglomerate, Mining, Infrastructure, Construction, Healthcare, Technology, Agriculture, Real Estate, Strategic Investments, Rashtra Bharosa Odisha, Rashtra Bharosa Bhubaneswar, Rashtra Bharosa India, Odisha industrial group, Bhubaneswar industrial group"
-        image="https://www.rashtrabharosagroup.com/colour-logo.png"
+        title="Rashtra Bharosa Group | Diversified Business Group in India"
+        description="Rashtra Bharosa Group is a diversified Indian business group headquartered in Bhubaneswar, Odisha, with interests across mining, infrastructure, healthcare, technology, agriculture, real estate and strategic capital."
+        keywords="Rashtra Bharosa Group, Rashtra Bharosa, RashBhar, Indian industrial conglomerate, diversified business group India, industrial conglomerate Odisha, Bhubaneswar corporate headquarters, Subransu Mohanty, Vikramaditya Singh Rathore, Prinseesh Yashraj Pratap, Mining Odisha, Innovex Infrastructure, RashBhar Healthcare, RashBhar Technology, RashBhar Soil & Soul, RashBhar Real Estate, Royal Birds Group"
+        image="https://www.rashtrabharosagroup.com/rashtra-bharosa-group-og.png"
       />
 
       {/* =========================================================================
@@ -177,8 +177,8 @@ const Home = () => {
 
             {/* Main Conglomerate Anchor Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[1.14]">
-              Rooted in Trust, <br />
-              <span className="font-bold text-white">Rising with Bharat</span>
+              Rashtra Bharosa Group: <br />
+              <span className="font-bold text-white">Building Businesses for a Stronger Bharat</span>
             </h1>
 
             {/* Dynamically Changing Sector Text Box */}
